@@ -1,23 +1,66 @@
 aid: betpawa
+
 name: BetPawa
-description: 'BetPawa is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: 'BetPawa is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub
+  for full-pipeline profiling.'
+
 url: https://raw.githubusercontent.com/api-evangelist/betpawa/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-28 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-09-28'
+
 modified: '2026-09-28'
+
 tags:
 - Company
-apis: []
+- Betting
+- Sports
+- Gaming
+- Africa
+- Online
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Hosts
+  url: hosts/betpawa-hosts.yml
+- type: Vendors
+  url: vendors/betpawa-vendors.yml
+- type: DomainSecurity
+  url: security/betpawa-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.betpawa.com/
+
+apis:
+- name: BetPawa API
+  description: API for BetPawa (no machine-readable spec discovered)
+  humanURL: https://www.betpawa.com/
+  aid: betpawa:betpawa-api
+
+x-coverage:
+  state: unreadable
+  reason: js-rendered-docs
+  detail: BetPawa website returns a JavaScript shell with no machine‑readable API documentation.
+  evidence:
+  - url: https://www.betpawa.com/
+    status: 200
+  checked: '2026-09-28'
+x-enrichment:
+  date: '2026-09-28'
+  status: enriched
+  artifacts_added: 5
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local
